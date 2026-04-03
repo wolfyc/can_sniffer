@@ -1,0 +1,51 @@
+# Arduino Mega 2560 CAN Sniffer Pinout
+# Version 1: passive sniffing with MCP2515
+# Optional: Grove RGB LCD status display
+
+## MCP2515 CAN Controller -> Arduino Mega 2560
+
+| MCP2515 Pin | Arduino Mega Pin | Notes |
+| ----------- | ---------------- | ----- |
+| VCC         | 5V               | 5 V logic/power |
+| GND         | GND              | Common ground |
+| CS          | 53               | SPI chip select |
+| SCK         | 52               | SPI clock |
+| SI          | 51 (MOSI)        | SPI data from Mega to MCP2515 |
+| SO          | 50 (MISO)        | SPI data from MCP2515 to Mega |
+| INT         | 2                | Falling-edge interrupt |
+| CANH        | CAN bus CANH     | Twisted pair |
+| CANL        | CAN bus CANL     | Twisted pair |
+
+## CAN Bus Notes
+
+| Item         | Value |
+| ------------ | ----- |
+| Bitrate      | 500 kbps |
+| Topology     | Twisted pair CANH/CANL |
+| Termination  | 120 ohm at each end of the bus |
+| Firmware mode| Listen-only / passive sniffing |
+
+## Optional Grove LCD RGB Backlight -> Arduino Mega 2560
+
+| LCD Pin / Signal | Arduino Mega Pin | Notes |
+| ---------------- | ---------------- | ----- |
+| VCC              | 5V               | LCD power |
+| GND              | GND              | Common ground |
+| SDA              | 20 (SDA)         | I2C data |
+| SCL              | 21 (SCL)         | I2C clock |
+
+## LCD Notes
+
+| Item            | Value |
+| --------------- | ----- |
+| Interface       | I2C |
+| LCD I2C Address | 0x3E |
+| RGB I2C Address | 0x62 |
+| Purpose         | Optional status display only |
+
+## Integration Notes
+
+- Keep MCP2515 on SPI and interrupt pin 2.
+- Keep LCD on I2C pins 20/21.
+- Do not move CAN INT to pins 20 or 21 because those are used by I2C on the Mega.
+- All modules must share common ground.

@@ -1,0 +1,7 @@
+    Functional requirements: capture frames, timestamp them, send over serial, log to CSV, filter by CAN ID.
+
+    Non-functional requirements: stable at 500 kbps, readable logs, recover from malformed serial lines, testable in CI.
+
+    Hardware requirements: Arduino Mega + MCP2515 as baseline, optional LCD status display, optional ESP32 later.
+
+    Acceptance criteria: a user can connect the board, receive live frames, run pytest, and see green Jenkins results.

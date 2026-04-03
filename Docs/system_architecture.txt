@@ -1,0 +1,15 @@
+Embedded side: frame acquisition, interrupt handling, serial output.
+
+Host side: parsing, validation, filtering, logging, decoding.
+
+Test side: pytest for unit/integration, pytest-bdd for scenario tests, Jenkins for CI.
+
+This is also the moment to freeze Version 1 scope:
+
+    No frame injection yet.
+
+    No ESP32 bridge yet.
+
+    No STM32 path yet.
+
+    Passive sniffing only.
